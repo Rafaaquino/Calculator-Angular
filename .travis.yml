@@ -1,7 +1,7 @@
 
 language: node_js
 node_js:
-  - "9"
+  - "10"
 dist: trusty
 sudo: required
 branches:
@@ -11,4 +11,4 @@ before_script:
   - npm install -g @angular/cli
 script:
 - ng lint
-- ng build --prod --base-href https://github.com/Rafaaquino/
+- ng build --prod 
