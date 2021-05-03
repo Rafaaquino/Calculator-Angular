@@ -9,23 +9,18 @@ import { CalculadoraService } from '../services/calculadora.service'
 })
 export class CalculadoraComponent implements OnInit {
 
-  title = "calculadora works!";
-
   private num1: string;
   private num2: string;
   private operacao: string;
   private resultado: number;
 
+  constructor(private calculadoraService: CalculadoraService) {   }
 
-  constructor(private calculadoraService: CalculadoraService) {
-    
-   }
-
-  ngOnInit(): void {
-    this.limpar()
+  ngOnInit() {
+    this.limpar();
   }
 
-  limpar(){
+  limpar(): void{
     this.num1 = '0';
     this.num2 = null;
     this.operacao = null;
@@ -34,35 +29,32 @@ export class CalculadoraComponent implements OnInit {
 
 
   adicionarNumero(numero: string): void {
-
     if(this.operacao === null){
       this.num1 = this.concatenarNumero(this.num1, numero);
-
     } else {
       this.num2 = this.concatenarNumero(this.num2, numero);
     }
   }
 
-  definirOperacao(operacao: string) {
-    if(this.operacao === null){
-      this.operacao = this.operacao
+  definirOperacao(operacao: string): void {
+  	if (this.operacao === null) {
+      this.operacao = operacao;
       return;
-    }
+  	}
 
-    if(this.operacao !== null){
-      this.resultado = this.calculadoraService.calcular(
+  	if (this.num2 !== null) {
+  		this.resultado = this.calculadoraService.calcular(
   			parseFloat(this.num1), 
   			parseFloat(this.num2), 
   			this.operacao);
   		this.operacao = operacao;
   		this.num1 = this.resultado.toString();
   		this.num2 = null;
-  		this.resultado = null;        
-    }
-
+  		this.resultado = null;
+  	}
   }
 
-  calcular(){
+  calcular(): void{
     if (this.num2 === null) {
   		return;
   	}

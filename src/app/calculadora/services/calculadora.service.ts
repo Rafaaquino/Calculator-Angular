@@ -35,8 +35,4 @@ export class CalculadoraService {
         return resultado;
 
     }
-
-    
-
-
 }

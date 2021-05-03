@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CalculadoraService } from '../services/calculadora.service';
 
 import { CalculadoraComponent } from './calculadora.component';
 
@@ -8,7 +9,10 @@ describe('CalculadoraComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CalculadoraComponent ]
+      declarations: [ CalculadoraComponent ], 
+      providers: [
+        CalculadoraService
+      ]
     })
     .compileComponents();
   });
@@ -17,12 +21,6 @@ describe('CalculadoraComponent', () => {
     fixture = TestBed.createComponent(CalculadoraComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it(`should have as title 'calculadora works'`, () => {
-    const fixture = TestBed.createComponent(CalculadoraComponent);
-    const component = fixture.componentInstance;
-    expect(component.title).toEqual('calculadora works!');
   });
 
   it('should create', () => {
