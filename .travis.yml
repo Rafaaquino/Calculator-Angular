@@ -1,7 +1,14 @@
+
 language: node_js
-services:
-  - xvfb
-before_install:
-  - "export DISPLAY=:99.0"
 node_js:
-  - 'node'  
+  - "9"
+dist: trusty
+sudo: required
+branches:
+  only:
+  - main
+before_script:
+  - npm install -g @angular/cli
+script:
+- ng lint
+- ng build --prod --base-href https://github.com/Rafaaquino/
