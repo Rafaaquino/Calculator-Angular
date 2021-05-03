@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class CalculadoraService {
@@ -12,7 +12,7 @@ export class CalculadoraService {
 
     }
 
-    calcular(num1: number, num2: number, operacao: string){
+    calcular(num1: number, num2: number, operacao: string): number{
         let resultado: number;
 
         switch(operacao){
