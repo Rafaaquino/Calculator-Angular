@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser'
+import { By } from '@angular/platform-browser';
 import { CalculadoraService } from '../services/calculadora.service';
 import { CalculadoraComponent } from './calculadora.component';
 import { from } from 'rxjs';
@@ -10,8 +10,8 @@ describe('CalculadoraComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CalculadoraComponent ], 
-      providers: [
+      declarations: [ CalculadoraComponent ],
+            providers: [
         CalculadoraService
       ]
     })
@@ -43,7 +43,6 @@ describe('CalculadoraComponent', () => {
 
     btn2.triggerEventHandler('click', null);
     fixture.detectChanges();
-    
     btnCalcular.triggerEventHandler('click', null);
     fixture.detectChanges();
 

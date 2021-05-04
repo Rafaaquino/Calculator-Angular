@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { CalculadoraService } from '../services/calculadora.service'
+import { CalculadoraService } from '../services/calculadora.service';
 
 @Component({
   selector: 'app-calculadora',
@@ -14,13 +14,13 @@ export class CalculadoraComponent implements OnInit {
   private operacao: string;
   private resultado: number;
 
-  constructor(private calculadoraService: CalculadoraService) {   }
+  constructor(private calculadoraService: CalculadoraService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.limpar();
   }
 
-  limpar(): void{
+  limpar(): void {
     this.num1 = '0';
     this.num2 = null;
     this.operacao = null;
@@ -29,7 +29,7 @@ export class CalculadoraComponent implements OnInit {
 
 
   adicionarNumero(numero: string): void {
-    if(this.operacao === null){
+    if (this.operacao === null) {
       this.num1 = this.concatenarNumero(this.num1, numero);
     } else {
       this.num2 = this.concatenarNumero(this.num2, numero);
@@ -37,64 +37,64 @@ export class CalculadoraComponent implements OnInit {
   }
 
   definirOperacao(operacao: string): void {
-  	if (this.operacao === null) {
+    if (this.operacao === null) {
       this.operacao = operacao;
       return;
-  	}
+    }
 
-  	if (this.num2 !== null) {
-  		this.resultado = this.calculadoraService.calcular(
-  			parseFloat(this.num1), 
-  			parseFloat(this.num2), 
-  			this.operacao);
-  		this.operacao = operacao;
-  		this.num1 = this.resultado.toString();
-  		this.num2 = null;
-  		this.resultado = null;
-  	}
+    if (this.num2 !== null) {
+      this.resultado = this.calculadoraService.calcular(
+        parseFloat(this.num1),
+        parseFloat(this.num2),
+        this.operacao);
+      this.operacao = operacao;
+      this.num1 = this.resultado.toString();
+      this.num2 = null;
+      this.resultado = null;
+    }
   }
 
-  calcular(): void{
+  calcular(): void {
     if (this.num2 === null) {
-  		return;
-  	}
+      return;
+    }
 
-  	this.resultado = this.calculadoraService.calcular(
-  		parseFloat(this.num1), 
-  		parseFloat(this.num2), 
-  		this.operacao);
+    this.resultado = this.calculadoraService.calcular(
+      parseFloat(this.num1),
+      parseFloat(this.num2),
+      this.operacao);
   }
 
 
 
   concatenarNumero(numAtual: string, numConcat: string): string {
-  	// caso contenha apenas '0' ou null, reinicia o valor
+    // caso contenha apenas '0' ou null, reinicia o valor
     if (numAtual === '0' || numAtual === null) {
-  	  numAtual = '';
-  	}
+      numAtual = '';
+    }
 
     // primeiro dígito é '.', concatena '0' antes do ponto
-  	if (numConcat === '.' && numAtual === '') {
-  	  return '0.';
-  	}
+    if (numConcat === '.' && numAtual === '') {
+      return '0.';
+    }
 
     // caso '.' digitado e já contenha um '.', apenas retorna
-  	if (numConcat === '.' && numAtual.indexOf('.') > -1) {
-  	  return numAtual;
-  	}
+    if (numConcat === '.' && numAtual.indexOf('.') > -1) {
+      return numAtual;
+    }
 
-  	return numAtual + numConcat;
+    return numAtual + numConcat;
   }
 
 
   get display(): string {
-  	if (this.resultado !== null) {
-  		return this.resultado.toString();
-  	}
-  	if (this.num2 !== null) {
-  		return this.num2;
-  	}
-  	return this.num1;
+    if (this.resultado !== null) {
+      return this.resultado.toString();
+    }
+    if (this.num2 !== null) {
+      return this.num2;
+    }
+    return this.num1;
   }
 
 }

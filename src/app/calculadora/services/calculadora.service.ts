@@ -8,15 +8,13 @@ export class CalculadoraService {
     static readonly DIVISAO: string = '/';
     static readonly MULTIPLICACAO: string = '*';
 
-    constructor(){
+    constructor() {
 
     }
 
-    calcular(num1: number, num2: number, operacao: string): number{
+    calcular(num1: number, num2: number, operacao: string): number {
         let resultado: number;
-
-        switch(operacao){
-            
+        switch (operacao) {
             case CalculadoraService.SOMA:
                 resultado = num1 + num2;
                 break;
@@ -31,7 +29,7 @@ export class CalculadoraService {
                 break;
             default:
                 resultado = 0;
-            }
+        }
 
         return resultado;
 
