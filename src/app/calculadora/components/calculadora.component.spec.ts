@@ -29,11 +29,11 @@ describe('CalculadoraComponent', () => {
   });
 
   it('deve garantir que 3 + 2 = 5', () => {
-    let btn3 = fixture.debugElement.query(By.css('#btn3'));
-    let btnSoma = fixture.debugElement.query(By.css('#btnSoma'));
-    let btn2 = fixture.debugElement.query(By.css('#btn2'));
-    let btnCalcular = fixture.debugElement.query(By.css('#btnCalcular'));
-    let display = fixture.debugElement.query(By.css('#display'));
+    const btn3 = fixture.debugElement.query(By.css('#btn3'));
+    const btnSoma = fixture.debugElement.query(By.css('#btnSoma'));
+    const btn2 = fixture.debugElement.query(By.css('#btn2'));
+    const btnCalcular = fixture.debugElement.query(By.css('#btnCalcular'));
+    const display = fixture.debugElement.query(By.css('#display'));
 
     btn3.triggerEventHandler('click', null);
     fixture.detectChanges();

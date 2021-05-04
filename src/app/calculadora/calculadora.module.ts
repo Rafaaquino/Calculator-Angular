@@ -6,17 +6,9 @@ import { CalculadoraService } from './services/calculadora.service';
 
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [
-  	CalculadoraComponent
-  ],
-  exports: [
-  	CalculadoraComponent
-  ],
-  providers: [
-  	CalculadoraService
-  ]
+  imports: [ CommonModule ],
+  declarations: [	CalculadoraComponent ],
+  exports: [ 	CalculadoraComponent ],
+  providers: [	CalculadoraService ]
 })
 export class CalculadoraModule { }

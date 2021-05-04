@@ -16,6 +16,7 @@ export class CalculadoraService {
         let resultado: number;
 
         switch(operacao){
+            
             case CalculadoraService.SOMA:
                 resultado = num1 + num2;
                 break;
@@ -29,8 +30,8 @@ export class CalculadoraService {
                 resultado = num1 * num2;
                 break;
             default:
-                resultado = 0;                
-        }
+                resultado = 0;
+            }
 
         return resultado;
 
